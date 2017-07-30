@@ -1,5 +1,11 @@
+// @flow
+
+// main modules
 const path = require('path');
 const express = require('express');
+// user modules
+console.log()
+const {pad} = require('./server/helpers.js');
 
 const app = express();
 
@@ -8,12 +14,13 @@ app.use(express.static(path.resolve('build'), {
 }));
 
 app.get('/', function (req, res) {
+	console.log(pad());
 	console.log(`Requested index: ${req.ip}`);
 	res.send('Hello World!')
+	console.log(pad());
 })
 
-const PORT = 6789;
-
+const PORT = process.env.APP_PORT;
 app.listen(PORT, function () {
-	console.log(`App is listening on ${6789}`);
+	console.log(`App is listening on ${PORT}`);
 });

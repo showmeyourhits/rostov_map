@@ -1,0 +1,4 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+	"flow.pathToFlow": "/home/bobo/Documents/rostov_map/node_modules/.bin/flow"
+}
