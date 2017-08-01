@@ -1,8 +1,8 @@
 // @flow
 
 // main modules
-const path = require('path');
-const express = require('express');
+import express from 'express';
+import path from 'path';
 // user modules
 console.log()
 const {pad} = require('./server/helpers.js');
