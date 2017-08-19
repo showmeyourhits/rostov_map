@@ -4,8 +4,8 @@
 import express from 'express';
 import path from 'path';
 // user modules
-console.log()
-const {pad} = require('./server/helpers.js');
+import {pad} from './server/helpers.js';
+import {dataEmmiter} from './server/dataEmmitter.js';
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.get('/', function (req, res) {
 	console.log(pad());
 })
 
-const PORT = process.env.APP_PORT;
+const PORT = process.env.APP_PORT || 6789;
 app.listen(PORT, function () {
 	console.log(`App is listening on ${PORT}`);
 });
