@@ -25,6 +25,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin({
 			title: 'This is bus map',
+			template: path.resolve('src/client/index.template.html'),
 		})
 	]
 }

@@ -1,6 +1,6 @@
 // @flow
 import zipObject from 'lodash.zipobject';
-import type {BusDataT} from './types';
+import type {BusDataT} from '../common/types';
 
 export const pad = (str: string = '#', len: number = 40): string => ''.padStart(40, '#');
 
