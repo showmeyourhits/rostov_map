@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
 	name: "server script",
-	entry: path.resolve('src', 'server'),
+	entry: path.resolve('src', 'server', 'server.js'),
 	target: "node",
 	output: {
 		path: path.resolve('build'),

@@ -1,14 +1,13 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
-const NpmInstallPlugin = require('npm-install-webpack2-plugin');
 
 module.exports = {
 	output: {
 		path: path.resolve('build'),
-		filename: '[chunkname].js'
+		filename: '[name].js'
 	},
 	entry: {
-		// client: path.resolve('src', 'client'),
-		server: path.resolve('src', 'server'),
+		client_build: path.resolve('src/client/client.js'),
 	},
 	module: {
 		rules: [
@@ -24,5 +23,8 @@ module.exports = {
 		],
 	},
 	plugins: [
+		new HtmlWebpackPlugin({
+			title: 'This is bus map',
+		})
 	]
 }

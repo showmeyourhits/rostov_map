@@ -5,20 +5,24 @@ import {parseDataRow} from './helpers';
 import EventEmitter from 'events';
 import http from 'http';
 
-const dataEmmiter = new EventEmitter();
+export const dataEmmiter = new EventEmitter();
 
 const startRequestLoop = () => setInterval(() => {
-	http.get(`${busesAPIURL}?${Date.now()}`, (res) => {
-		console.log('fetched data');
+	const now = Date.now();
+
+	http.get(`${busesAPIURL}?${now}`, (res) => {
 		let data = '';
+
+		console.log('fetched data at %s', now);
+
 		res.on('data', (chunk) => {
 			data += chunk;
 		})
+
 		res.on('end', () => {
 			const rows = data.split('\n');
-			console.log('rows.length', rows.length);
-			console.log(rows[100]);
-			console.log(parseDataRow(rows[100]));
+			const dataArray = rows.slice(0, rows.length - 1).map(parseDataRow);
+			dataEmmiter.emit('new_data', dataArray);
 		})
 	});
 }, POSITIONS_UPDATE_TIMEOUT);

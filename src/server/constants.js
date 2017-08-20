@@ -6,3 +6,4 @@
  */
 export const busesAPIURL = 'http://www.its-rnd.ru/pikasonline/p04ktwt0.txt';
 export const POSITIONS_UPDATE_TIMEOUT = 5000;
+export const SOCKET_CHECK_TIMEOUT = 10000;
